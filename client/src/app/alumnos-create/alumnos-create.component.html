@@ -1,0 +1,97 @@
+<div class="container">
+  <h1>Registrar Alumno</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveAlumnos()" #alumnosForm="ngForm">
+        <div class="form-group">
+          <label for="name">Matricula</label>
+          <input type="text" class="form-control" [(ngModel)]="alumnos.matricula"
+          pattern="[0-9]*"
+    name="matricula" #matricula="ngModel" minlength="9" onKeyPress="if(this.value.length==9) return false;" required>
+        </div>
+
+          <div *ngIf="matricula.errors &&(matricula.touched || matricula.dirty)" class ="alert alert-danger">
+            <div>
+             Matricula invalida
+           </div> 
+         </div>
+
+        <div class="form-group">
+          <label for="name">Correo</label>
+          <input type="email" class="form-control" [(ngModel)]="alumnos.correo" ngModel email="true" name="correo"  #emailref="ngModel" required>
+        </div>
+
+         <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="alert alert-danger">
+            <div>
+             Correo invalido
+           </div> 
+         </div>
+
+
+        <div class="form-group">
+          <label for="name">Semestre</label>
+          <select class="form-control" [(ngModel)]="alumnos.semestre" name="semestre" required><option>1</option></select>
+        </div>
+
+
+                 <div class="form-group">
+          <label for="name">Nivel</label>
+         
+         <select class="form-control" name="nivel" [(ngModel)]="alumnos.nivel" required>
+        <option>{{lista[0]}}</option>
+        <option>{{lista[1]}}</option>
+        <option>{{lista[2]}}</option>
+        <option>{{lista[3]}}</option>
+        </select>
+      </div>
+
+        <div *ngIf="alumnos.nivel == 'Bachillerato'" >
+           
+               <div>
+            <label for="name">Seleccione area</label>
+             <select class="form-control" name="area" [(ngModel)]="alumnos.area" required>
+                <option>No aplica</option>
+                </select>
+           </div> 
+            
+         </div>
+
+          <div *ngIf="alumnos.nivel == 'Licenciatura'" >
+            <div>
+            <label for="name">Seleccione area</label>
+             <select class="form-control" name="area" [(ngModel)]="alumnos.area" required>
+                <option>Enfermeria</option>
+                <option>Software</option>
+                <option>Arquitectura</option>
+                </select>
+           </div> 
+         </div>
+
+
+          <div *ngIf="alumnos.nivel == 'Maestria'" >
+            <div>
+            <label for="name">Seleccione area</label>
+             <select class="form-control" name="area" [(ngModel)]="alumnos.area" required>
+                <option>Fiscal</option>
+                <option>Educación</option>
+                </select>
+           </div> 
+         </div>
+
+          <div *ngIf="alumnos.nivel == 'Doctorado'" >
+            <div>
+            <label for="name">Seleccione area</label>
+             <select class="form-control" name="area" [(ngModel)]="alumnos.area" required>
+                <option>Comunicación</option>
+                <option>Gastronomia</option>
+                </select>
+           </div> 
+         </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!alumnosForm.form.valid">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

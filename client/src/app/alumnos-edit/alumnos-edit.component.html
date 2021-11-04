@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Editar Alumnos</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="updateAlumnos(alumnos.id)" #alumnosForm="ngForm">
+        <div class="form-group">
+          <label for="name">Matricula</label>
+          <input type="text" class="form-control" [(ngModel)]="alumnos.matricula" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Correo</label>
+          <input type="email" class="form-control" [(ngModel)]="alumnos.correo" name="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Nivel</label>
+          <input type="text" class="form-control" [(ngModel)]="alumnos.nivel" name="nivel" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Semestre</label>
+          <input type="number" class="form-control" [(ngModel)]="alumnos.semestre" name="semestre" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!alumnosForm.form.valid">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

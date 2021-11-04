@@ -1,0 +1,6 @@
+#Wed, 03 Nov 2021 14:15:03 -0600
+
+info.app.version=0.1
+info.app.name=server
+grails.env=production
+info.app.grailsVersion=3.3.1

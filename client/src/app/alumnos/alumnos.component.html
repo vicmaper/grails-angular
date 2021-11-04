@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Alumnos lista
+   <a [routerLink]="['/alumnos-create']" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true">Registrar alumnos</span>
+  </a></h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Matricula</th>
+        <th>Correo</th>
+        <th>Semestre</th>
+        <th>Nivel</th>
+        <th>Area</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alum of alumnos">
+        <td>{{ alum.matricula }}</td>
+        <td>{{ alum.correo }}</td>
+        <td>{{ alum.semestre }}</td>
+        <td>{{ alum.nivel }}</td>
+        <td>{{ alum.area }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
